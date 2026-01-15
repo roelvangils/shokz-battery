@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shokz-battery - Check your Shokz headset battery from the terminal</title>
+  <meta name="description" content="A command-line tool to check your Shokz headset battery level and device information on macOS.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>shokz-battery</h1>
+      <p class="tagline">Check your Shokz headset battery from the terminal</p>
+    </header>
+
+    <section class="terminal">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <pre><code>$ shokz-battery
+Battery: <span class="yellow">■■■■■■</span><span class="dim">□□□□</span> 60% <span class="dim">(~8h 30m remaining)</span>
+<span class="cyan">OpenComm2</span> · EQ: Vocal Booster · <span class="green">USB 48kHz</span>
+<span class="dim">Updated: 16:55:56</span></code></pre>
+    </section>
+
+    <section class="install">
+      <h2>Installation</h2>
+      <pre><code>brew install roelvangils/tap/shokz-battery</code></pre>
+    </section>
+
+    <section class="features">
+      <h2>Features</h2>
+      <ul>
+        <li><strong>Battery level</strong> with visual bar and estimated remaining time</li>
+        <li><strong>Audio mode detection</strong> - USB (48kHz), Bluetooth (44kHz), or HFP (16kHz)</li>
+        <li><strong>Device info</strong> - Model, firmware, EQ mode, multipoint status</li>
+        <li><strong>JSON output</strong> for scripting and automation</li>
+        <li><strong>Watch mode</strong> for continuous monitoring</li>
+      </ul>
+    </section>
+
+    <section class="devices">
+      <h2>Supported Devices</h2>
+      <p>Works with all Shokz headsets that use the <strong>Loop120 USB dongle</strong>:</p>
+      <ul class="device-list">
+        <li>OpenComm / OpenComm2 / OpenComm2 UC</li>
+        <li>OpenRun / OpenRun Pro / OpenRun Pro 2</li>
+        <li>OpenMove</li>
+        <li>OpenFit / OpenFit 2 / OpenFit Pro</li>
+      </ul>
+    </section>
+
+    <section class="requirements">
+      <h2>Requirements</h2>
+      <ul>
+        <li>macOS</li>
+        <li><a href="https://shokz.com/pages/shokz-connect">Shokz Connect</a> app (must be running)</li>
+        <li>Loop120 USB dongle</li>
+      </ul>
+    </section>
+
+    <footer>
+      <a href="https://github.com/roelvangils/shokz-battery" class="github-link">View on GitHub</a>
+      <p class="meta">MIT License · Created by <a href="https://github.com/roelvangils">Roel Van Gils</a></p>
+    </footer>
+  </main>
+</body>
+</html>
