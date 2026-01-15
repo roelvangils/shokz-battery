@@ -144,6 +144,18 @@ ul {
   color: var(--accent);
 }
 
+.requirements-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dongle-image {
+  width: 80px;
+  height: auto;
+  flex-shrink: 0;
+}
+
 .device-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
