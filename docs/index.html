@@ -29,7 +29,10 @@ Battery: <span class="yellow">■■■■■■</span><span class="dim">□□�
 
     <section class="install">
       <h2>Installation</h2>
-      <pre><code>brew install roelvangils/tap/shokz-battery</code></pre>
+      <div class="code-block">
+        <pre><code>brew install roelvangils/tap/shokz-battery</code></pre>
+        <button class="copy-btn" onclick="copyToClipboard(this, 'brew install roelvangils/tap/shokz-battery')">Copy</button>
+      </div>
     </section>
 
     <section class="features">
@@ -72,5 +75,17 @@ Battery: <span class="yellow">■■■■■■</span><span class="dim">□□�
       <p class="disclaimer">This project is not affiliated with Shokz. For official product information, visit <a href="https://shokz.com">shokz.com</a>.</p>
     </footer>
   </main>
+  <script>
+    function copyToClipboard(btn, text) {
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>
