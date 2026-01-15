@@ -122,3 +122,7 @@ MIT License - see [LICENSE](LICENSE) for details.
 ## Author
 
 Created by [Roel Van Gils](https://github.com/roelvangils) with [Claude Code](https://claude.ai/code).
+
+## Disclaimer
+
+This project is not affiliated with Shokz. For official product information, visit [shokz.com](https://shokz.com).
