@@ -36,6 +36,13 @@ header {
   margin-bottom: 3rem;
 }
 
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+
 h1 {
   font-size: 2.5rem;
   font-weight: 600;
