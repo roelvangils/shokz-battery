@@ -26,7 +26,7 @@ chmod +x /usr/local/bin/shokz-battery
 ## Requirements
 
 - **macOS** (reads from `~/Library/Logs/Shokz`)
-- **[Shokz Connect](https://shokz.com/pages/shokz-connect)** app must be installed and running
+- **[Shokz Connect](https://pro.shokz.com/pages/shokz-connect)** app must be installed and running
 - **Loop120 USB dongle** (comes with OpenComm2 and other UC models)
 
 Optional: Install `switchaudio-osx` for audio mode detection:
