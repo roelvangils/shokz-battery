@@ -21,7 +21,7 @@ License: MIT
 Repository: https://github.com/roelvangils/shokz-battery
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 import argparse
 import json
@@ -384,11 +384,13 @@ def decode_battery(hex_value):
     return None
 
 
-def format_output(data, as_json=False, verbose=False):
+def format_output(data, as_json=False, verbose=False, compact=False):
     """Format the output for display."""
     if not data or not data['battery']['value']:
         if as_json:
             return json.dumps({'success': False, 'error': 'No data found'}, indent=2)
+        if compact:
+            return "⚠️ No data"
         return "Error: No battery data found. Is Shokz Connect running?"
 
     battery = decode_battery(data['battery']['value'])
@@ -396,6 +398,23 @@ def format_output(data, as_json=False, verbose=False):
 
     # Calculate estimated remaining time based on advertised talk time
     estimate_minutes = estimate_remaining_time(battery['percentage']) if battery else None
+
+    # Compact single-line output for menu bar apps
+    if compact:
+        parts = []
+        if battery:
+            emoji = "🔋" if battery['percentage'] >= 20 else "🪫"
+            parts.append(f"{emoji} {battery['percentage']}%")
+        if data['headset_type']:
+            parts.append(get_model_name(data['headset_type']))
+        if audio['output_device']:
+            if audio['using_dongle']:
+                parts.append("USB")
+            elif audio['using_bluetooth_mic']:
+                parts.append("HFP")
+            elif 'bones' in audio['output_device'].lower():
+                parts.append("BT")
+        return " · ".join(parts)
 
     if as_json:
         output = {
@@ -537,6 +556,7 @@ Examples:
   %(prog)s -v           Show battery + device info
   %(prog)s --json       Output all info as JSON
   %(prog)s --watch      Continuously monitor battery
+  %(prog)s --compact    Single-line output for menu bars
   %(prog)s --raw        Show raw battery hex value only
         '''
     )
@@ -547,6 +567,8 @@ Examples:
     parser.add_argument('--watch', action='store_true', help='Continuously monitor (every 30s)')
     parser.add_argument('--watch-interval', type=int, default=30,
                         help='Watch interval in seconds (default: 30)')
+    parser.add_argument('--compact', action='store_true',
+                        help='Single-line output for menu bar apps')
 
     args = parser.parse_args()
 
@@ -568,7 +590,7 @@ Examples:
                 print("ERROR", file=sys.stderr)
                 return 1
         else:
-            print(format_output(data, as_json=args.json, verbose=args.verbose))
+            print(format_output(data, as_json=args.json, verbose=args.verbose, compact=args.compact))
 
         return 0 if (data and data['battery']['value']) else 1
 

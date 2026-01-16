@@ -14,8 +14,10 @@ jobs:
           access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }}
           url: https://mastodon.elevenways.be
           message: |
-            shokz-battery ${{ github.event.release.tag_name }} released!
+            🎧 shokz-battery ${{ github.event.release.tag_name }} released!
 
             ${{ github.event.release.body }}
 
-            https://github.com/roelvangils/shokz-battery
+            brew upgrade shokz-battery
+
+            #opensource #cli #homebrew
