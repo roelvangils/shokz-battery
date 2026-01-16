@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog - shokz-battery</title>
+  <meta name="description" content="Release history and changelog for shokz-battery.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .changelog-entry {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .changelog-entry h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .version-tag {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .release-date {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    .changelog-entry h4 {
+      color: var(--green);
+      font-size: 0.9rem;
+      margin: 1rem 0 0.5rem;
+    }
+    .changelog-entry ul {
+      padding-left: 1.25rem;
+      list-style: disc;
+    }
+    .changelog-entry li {
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      color: var(--text-dim);
+    }
+    .back-link:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="index.html" class="back-link">&larr; Back to home</a>
+
+    <header>
+      <h1>Changelog</h1>
+      <p class="tagline">Release history for shokz-battery</p>
+    </header>
+
+    <section class="changelog">
+      <article class="changelog-entry" id="v1.1.0">
+        <h3>
+          <span class="version-tag">v1.1.0</span>
+          <span class="release-date">January 16, 2026</span>
+        </h3>
+        <h4>Added</h4>
+        <ul>
+          <li>CHANGELOG.md for tracking version history</li>
+          <li>Changelog page on GitHub Pages (docs/changelog.html)</li>
+          <li>Changelog section on main documentation page</li>
+          <li><code>/release</code> Claude skill for automated version releases</li>
+        </ul>
+      </article>
+
+      <article class="changelog-entry" id="v1.0.0">
+        <h3>
+          <span class="version-tag">v1.0.0</span>
+          <span class="release-date">January 15, 2025</span>
+        </h3>
+        <h4>Added</h4>
+        <ul>
+          <li>Initial release of shokz-battery</li>
+          <li>Battery level display with visual bar and estimated remaining time</li>
+          <li>Audio mode detection (USB 48kHz, Bluetooth 44kHz, HFP 16kHz)</li>
+          <li>Device information: model, firmware, EQ mode, voice language, multipoint status</li>
+          <li>JSON output for scripting and automation (<code>--json</code>)</li>
+          <li>Watch mode for continuous monitoring (<code>--watch</code>)</li>
+          <li>Verbose mode for detailed device info (<code>-v</code>)</li>
+          <li>Raw output mode (<code>--raw</code>)</li>
+          <li>Support for all Shokz headsets using Loop120 USB dongle</li>
+          <li>Homebrew installation via <code>brew install roelvangils/tap/shokz-battery</code></li>
+          <li>GitHub Pages documentation site</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <a href="https://github.com/roelvangils/shokz-battery" class="github-link">View on GitHub</a>
+      <p class="meta">MIT License · Created by <a href="https://github.com/roelvangils">Roel Van Gils</a></p>
+    </footer>
+  </main>
+</body>
+</html>
