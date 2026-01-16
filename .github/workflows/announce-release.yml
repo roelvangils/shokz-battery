@@ -1,0 +1,21 @@
+name: Announce Release on Mastodon
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  toot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post to Mastodon
+        uses: cbrgm/mastodon-github-action@v2
+        with:
+          access-token: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          url: https://mastodon.elevenways.be
+          message: |
+            shokz-battery ${{ github.event.release.tag_name }} released!
+
+            ${{ github.event.release.body }}
+
+            https://github.com/roelvangils/shokz-battery
