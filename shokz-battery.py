@@ -553,7 +553,9 @@ Examples:
     log_dir = get_latest_log_dir()
     if not log_dir:
         print("Error: Shokz Connect logs not found.", file=sys.stderr)
-        print("Make sure the Shokz Connect app is installed.", file=sys.stderr)
+        print("", file=sys.stderr)
+        print("To use this utility, make sure the Shokz Connect app is installed.", file=sys.stderr)
+        print("You can get it here: https://pro.shokz.com/pages/shokz-connect", file=sys.stderr)
         return 1
 
     def get_and_print():
