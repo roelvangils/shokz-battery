@@ -21,7 +21,7 @@ License: MIT
 Repository: https://github.com/roelvangils/shokz-battery
 """
 
-__version__ = "1.2.1"
+__version__ = "1.2.2"
 
 import argparse
 import json
@@ -518,6 +518,15 @@ def format_output(data, as_json=False, verbose=False, compact=False):
 
     if data['battery']['timestamp']:
         lines.append(f"{DIM}Updated: {data['battery']['timestamp'].strftime('%H:%M:%S')}{RESET}")
+
+        # Check how stale the data is
+        age = datetime.now() - data['battery']['timestamp']
+        age_minutes = age.total_seconds() / 60
+
+        if age_minutes > 60:
+            lines.append(f"{YELLOW}⚠️  Data is over an hour old and may be inaccurate. Open Shokz Connect to refresh.{RESET}")
+        elif age_minutes > 10:
+            lines.append(f"{DIM}💡 Shokz Connect may not be running. Start it for real-time updates.{RESET}")
 
     if verbose:
         lines.append("")
