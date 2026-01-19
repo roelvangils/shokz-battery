@@ -21,7 +21,7 @@ License: MIT
 Repository: https://github.com/roelvangils/shokz-battery
 """
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 import argparse
 import json
@@ -511,6 +511,10 @@ def format_output(data, as_json=False, verbose=False, compact=False):
     # Show hint if SwitchAudioSource is not installed
     if audio['missing_tool']:
         lines.append(f"{DIM}Tip: brew install switchaudio-osx for audio mode detection{RESET}")
+
+    # Low battery warning
+    if battery and battery['percentage'] <= 20:
+        lines.append(f"{RED}⚠️  Time to charge! You might not make it through your next meeting.{RESET}")
 
     if data['battery']['timestamp']:
         lines.append(f"{DIM}Updated: {data['battery']['timestamp'].strftime('%H:%M:%S')}{RESET}")
